@@ -16,9 +16,17 @@ int main(int argc, const char * argv[])
     BinaryTree<char> tree;
     BinaryTree<char>::Position root = BinaryTree<char>::Position::Root();
     
-    for (int i = 0; i < 26; i++, root.goNext()) {
-        tree.addData(root, 'A' + i);
-    }
+    // for (int i = 0; i < 63; i++, root.goNext()) {
+    //     tree.addData(root, 'A' + i);
+    // }
+    // tree.addData(root.left().right().right().right().right().right(), '*');
+    tree.addData(root, '*');
+    tree.addData(root.left(), '*');
+    tree.addData(root.left().right(), '*');
+    tree.addData(root.left().right().right(), '*');
+    tree.addData(root.left().right().right().right(), '*');
+    tree.addData(root.left().right().right().right().right(), '*');
+    tree.addData(root.left().right().right().right().right().left(), '*');
     std::cout << tree;
     
     std::cout << "    Recursive Pre  Order: ";

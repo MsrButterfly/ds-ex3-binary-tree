@@ -313,13 +313,14 @@ private:
         }
     }
     void recursiveSwapPosition(Node *root) {
-        if (root) {
-            recursiveSwapPosition(root -> left);
-            recursiveSwapPosition(root -> right);
-            Node *t = root -> left;
-            root -> left = root -> right;
-            root -> right = t;
+        if (!root) {
+            return;
         }
+        recursiveSwapPosition(root -> left);
+        recursiveSwapPosition(root -> right);
+        Node *t = root -> left;
+        root -> left = root -> right;
+        root -> right = t;
     }
 public:
     std::vector<Node *> getNodeVector() const {
