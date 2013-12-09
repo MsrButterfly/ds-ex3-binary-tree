@@ -19,9 +19,9 @@
 #include <cstdio>
 
 #if defined(__MINGW32__)
-	#define ENDLINE '\n';
+#   define ENDLINE '\n';
 #else
-	#define ENDLINE std::endl;
+#   define ENDLINE std::endl;
 #endif
 
 template <typename _Ty>
@@ -95,7 +95,7 @@ public:
         std::stack<Tag> getStack() const {
             std::stack<Tag> tagStack;
             for (unsigned long t = _pos; t != 1; t /= 2) {
-                Tag tag = (t % 2)? Right : Left;
+                Tag tag = (t % 2) ? Right : Left;
                 tagStack.push(tag);
             }
             return tagStack;
@@ -155,7 +155,7 @@ public:
     class Node {
     public:
         Node() : left(NULL), right(NULL) {}
-        Node(const _Ty& data) : left(NULL), right(NULL), data(data) {}
+        Node(const _Ty &data) : left(NULL), right(NULL), data(data) {}
         Node *left;
         Node *right;
         _Ty data;
@@ -166,7 +166,7 @@ public:
         }
         unsigned long leftDepth = _getDepth(root -> left);
         unsigned long rightDepth = _getDepth(root -> right);
-        return ((leftDepth > rightDepth)? leftDepth : rightDepth) + 1;
+        return ((leftDepth > rightDepth) ? leftDepth : rightDepth) + 1;
     }
 public:
     enum TraversalSequence {
@@ -356,49 +356,49 @@ public:
     unsigned long getDepth() const {
         return _getDepth(_root);
     }
-	friend std::ostream &operator<<(std::ostream &cout, const BinaryTree<_Ty> &tree) {
-		unsigned long depth = tree.getDepth();
-		std::vector<Node *> nodeVector = tree.getNodeVector();
-		typename std::vector<Node *>::iterator p;
-		unsigned long i = 0;
-		unsigned int length = (unsigned int)pow(2, depth - 1) - 1;
-		for (i = 0; i < length; i++) {
-			std::cout << ' ';
-		}
-		for (i = 0, p = nodeVector.begin(); p != nodeVector.end(); p++, i++) {
-			int layer = 0;
-			bool last = true;
-			long long t = i;
-			for (long long j = 0; t > 0; j++, t -= (unsigned long)pow(2, j), layer++);
-			if (t != 0) {
-				last = false;
-			}
-			if (*p) {
-				std::cout << (*p) -> data;
-			}
-			else {
-				std::cout << ' ';
-			}
-			if (last) {
-				std::cout << ENDLINE;
-				length = (unsigned int)pow(2, depth - layer - 2);
-				if (length > 0) {
-					length--;
-				}
-				for (unsigned int j = 0; j < length; j++) {
-					std::cout << ' ';
-				}
-			}
-			else {
-				length = (unsigned int)pow(2, depth - layer);
-				if (length > 0) {
-					length--;
-				}
-				for (unsigned int j = 0; j < length; j++) {
-					std::cout << ' ';
-				}
-			}
-		}
+    friend std::ostream &operator<<(std::ostream &cout, const BinaryTree<_Ty> &tree) {
+        unsigned long depth = tree.getDepth();
+        std::vector<Node *> nodeVector = tree.getNodeVector();
+        typename std::vector<Node *>::iterator p;
+        unsigned long i = 0;
+        unsigned int length = (unsigned int)pow(2, depth - 1) - 1;
+        for (i = 0; i < length; i++) {
+            std::cout << ' ';
+        }
+        for (i = 0, p = nodeVector.begin(); p != nodeVector.end(); p++, i++) {
+            int layer = 0;
+            bool last = true;
+            long long t = i;
+            for (long long j = 0; t > 0; j++, t -= (unsigned long)pow(2, j), layer++);
+            if (t != 0) {
+                last = false;
+            }
+            if (*p) {
+                std::cout << (*p) -> data;
+            }
+            else {
+                std::cout << ' ';
+            }
+            if (last) {
+                std::cout << ENDLINE;
+                length = (unsigned int)pow(2, depth - layer - 2);
+                if (length > 0) {
+                    length--;
+                }
+                for (unsigned int j = 0; j < length; j++) {
+                    std::cout << ' ';
+                }
+            }
+            else {
+                length = (unsigned int)pow(2, depth - layer);
+                if (length > 0) {
+                    length--;
+                }
+                for (unsigned int j = 0; j < length; j++) {
+                    std::cout << ' ';
+                }
+            }
+        }
         return cout;
     }
 private:
