@@ -178,18 +178,18 @@ public:
         Recursive,
         NonRecursive
     };
-    void traversal(TraversalSequence sequence, TraversalType type, void visit(_Ty &)) {
+    void traverse(TraversalSequence sequence, TraversalType type, void visit(_Ty &)) {
         switch (type) {
             case Recursive:
                 switch (sequence) {
                     case PreOrder:
-                        preOrderRecursiveTraversal(visit, _root);
+                        preOrderRecursiveTraverse(visit, _root);
                         break;
                     case InOrder:
-                        inOrderRecursiveTraversal(visit, _root);
+                        inOrderRecursiveTraverse(visit, _root);
                         break;
                     case PostOrder:
-                        postOrderRecursiveTraversal(visit, _root);
+                        postOrderRecursiveTraverse(visit, _root);
                         break;
                     default:
                         break;
@@ -198,13 +198,13 @@ public:
             case NonRecursive:
                 switch (sequence) {
                     case PreOrder:
-                        preOrderNonRecursiveTraversal(visit, _root);
+                        preOrderNonRecursiveTraverse(visit, _root);
                         break;
                     case InOrder:
-                        inOrderNonRecursiveTraversal(visit, _root);
+                        inOrderNonRecursiveTraverse(visit, _root);
                         break;
                     case PostOrder:
-                        postOrderNonRecursiveTraversal(visit, _root);
+                        postOrderNonRecursiveTraverse(visit, _root);
                         break;
                     default:
                         break;
@@ -218,31 +218,31 @@ public:
         recursiveSwapPosition(_root);
     }
 private:
-    static void preOrderRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void preOrderRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         if (!root) {
             return;
         }
         visit(root -> data);
-        preOrderRecursiveTraversal(visit, root -> left);
-        preOrderRecursiveTraversal(visit, root -> right);
+        preOrderRecursiveTraverse(visit, root -> left);
+        preOrderRecursiveTraverse(visit, root -> right);
     }
-    static void inOrderRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void inOrderRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         if (!root) {
             return;
         }
-        inOrderRecursiveTraversal(visit, root -> left);
+        inOrderRecursiveTraverse(visit, root -> left);
         visit(root -> data);
-        inOrderRecursiveTraversal(visit, root -> right);
+        inOrderRecursiveTraverse(visit, root -> right);
     }
-    static void postOrderRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void postOrderRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         if (!root) {
             return;
         }
-        postOrderRecursiveTraversal(visit, root -> left);
-        postOrderRecursiveTraversal(visit, root -> right);
+        postOrderRecursiveTraverse(visit, root -> left);
+        postOrderRecursiveTraverse(visit, root -> right);
         visit(root -> data);
     }
-    static void preOrderNonRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void preOrderNonRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         std::stack<Node *> nodeStack;
         nodeStack.push(NULL);
         nodeStack.push(root);
@@ -257,7 +257,7 @@ private:
             }
         }
     }
-    static void inOrderNonRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void inOrderNonRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         std::stack<Node *> nodeStack;
         nodeStack.push(NULL);
         nodeStack.push(root);
@@ -278,7 +278,7 @@ private:
             }
         }
     }
-    static void postOrderNonRecursiveTraversal(void visit(_Ty &), Node *root = NULL) {
+    static void postOrderNonRecursiveTraverse(void visit(_Ty &), Node *root = NULL) {
         std::stack<Node *> nodeStack;
         std::stack<typename Position::Tag> tagStack;
         nodeStack.push(NULL);

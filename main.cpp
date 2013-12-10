@@ -20,37 +20,37 @@ int main(int argc, const char *argv[])
     //     tree.addData(root, 'A' + i);
     // }
     // tree.addData(root.left().right().right().right().right().right(), '*');
-    tree.addData(root, '*');
-    tree.addData(root.left(), '*');
-    tree.addData(root.left().right(), '*');
-    tree.addData(root.left().right().right(), '*');
-    tree.addData(root.left().right().right().right(), '*');
-    tree.addData(root.left().right().right().right().right(), '*');
-    tree.addData(root.left().right().right().right().right().left(), '*');
+    tree.addData(root, 'A');
+    tree.addData(root.left(), 'B');
+    tree.addData(root.left().right(), 'C');
+    tree.addData(root.left().right().right(), 'D');
+    tree.addData(root.left().right().right().right(), 'E');
+    tree.addData(root.left().right().right().right().right(), 'F');
+    tree.addData(root.left().right().right().right().right().left(), 'G');
     std::cout << tree;
 
     std::cout << "    Recursive Pre  Order: ";
-    tree.traversal(BinaryTree<char>::PreOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::PreOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "    Recursive In   Order: ";
-    tree.traversal(BinaryTree<char>::InOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::InOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "    Recursive Post Order: ";
-    tree.traversal(BinaryTree<char>::PostOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::PostOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive Pre  Order: ";
-    tree.traversal(BinaryTree<char>::PreOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::PreOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive In   Order: ";
-    tree.traversal(BinaryTree<char>::InOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::InOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive Post Order: ";
-    tree.traversal(BinaryTree<char>::PostOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::PostOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     tree.swapPosition();
@@ -58,27 +58,27 @@ int main(int argc, const char *argv[])
     std::cout << tree;
 
     std::cout << "    Recursive Pre  Order: ";
-    tree.traversal(BinaryTree<char>::PreOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::PreOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "    Recursive In   Order: ";
-    tree.traversal(BinaryTree<char>::InOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::InOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "    Recursive Post Order: ";
-    tree.traversal(BinaryTree<char>::PostOrder, BinaryTree<char>::Recursive, print);
+    tree.traverse(BinaryTree<char>::PostOrder, BinaryTree<char>::Recursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive Pre  Order: ";
-    tree.traversal(BinaryTree<char>::PreOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::PreOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive In   Order: ";
-    tree.traversal(BinaryTree<char>::InOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::InOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     std::cout << "Non-Recursive Post Order: ";
-    tree.traversal(BinaryTree<char>::PostOrder, BinaryTree<char>::NonRecursive, print);
+    tree.traverse(BinaryTree<char>::PostOrder, BinaryTree<char>::NonRecursive, print);
     std::cout << ENDLINE;
 
     return 0;
