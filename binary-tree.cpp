@@ -16,17 +16,17 @@ int main(int argc, const char *argv[])
     BinaryTree<char> tree;
     BinaryTree<char>::Position root = BinaryTree<char>::Position::Root();
 
-    // for (int i = 0; i < 63; i++, root.goNext()) {
-    //     tree.addData(root, 'A' + i);
-    // }
+    for (int i = 0; i < 63; i++, root.goNext()) {
+        tree.addData(root, 'A' + i);
+    }
     // tree.addData(root.left().right().right().right().right().right(), '*');
-    tree.addData(root, 'A');
-    tree.addData(root.left(), 'B');
-    tree.addData(root.left().right(), 'C');
-    tree.addData(root.left().right().right(), 'D');
-    tree.addData(root.left().right().right().right(), 'E');
-    tree.addData(root.left().right().right().right().right(), 'F');
-    tree.addData(root.left().right().right().right().right().left(), 'G');
+    // tree.addData(root, 'A');
+    // tree.addData(root.left(), 'B');
+    // tree.addData(root.left().right(), 'C');
+    // tree.addData(root.left().right().right(), 'D');
+    // tree.addData(root.left().right().right().right(), 'E');
+    // tree.addData(root.left().right().right().right().right(), 'F');
+    // tree.addData(root.left().right().right().right().right().left(), 'G');
     std::cout << tree;
 
     std::cout << "    Recursive Pre  Order: ";
